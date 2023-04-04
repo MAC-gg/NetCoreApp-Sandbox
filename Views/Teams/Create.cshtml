@@ -1,0 +1,38 @@
+﻿@model NetCoreApp.ViewModels.CreateTeamVM
+@{
+    ViewData["Title"] = "Create";
+
+    // League league = ViewData["leagueData"] as League;
+    // string leagueName = ViewBag.leagueName;
+    // int leagueId = ViewBag.leagueID;
+}
+
+<h1>Create</h1>
+
+<h2>Team</h2>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <div>
+            <h3>@Model.LeagueName</h3>
+            <p>@Model.LeagueId</p>
+        </div>
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="TeamName" class="control-label"></label>
+                <input asp-for="TeamName" class="form-control" />
+                <span asp-validation-for="TeamName" class="text-danger"></span>
+            </div>
+            <input hidden asp-for="LeagueId" value="@Model.LeagueId" />
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

@@ -1,0 +1,28 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.background-off-white {
+    background-color:#f0f0f0;
+}
+
+.single-team-container {
+    width:100%;
+    max-width:200px;
+    height:50px;
+}

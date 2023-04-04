@@ -1,0 +1,42 @@
+﻿<!-- Data from controller -->
+@model IEnumerable<Match>
+@{
+    ViewData["Title"] = "Matches";
+}
+
+<h1>Index Matches</h1>
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h1 class="text-primary">Match List</h1>
+        </div>
+        <div class="col-6 text-end">
+            <a asp-controller="Match" asp-action="Create" class="btn btn-primary">Create New Match</a>
+        </div>
+    </div>
+    <table class="d-lg-table table-bordered table-striped" style="width:100%">
+        <thead>
+            <tr>
+                <th>Match Name</th>
+                <th>Display Order</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var obj in Model)
+            {
+                <tr>
+                    <td width="50%">@obj.Name</td>
+                    <td width="50%">@obj.DisplayOrder</td>
+                    <td>
+                        <div class="w-75 btn-group" role="group">
+                            @* Use asp-route-varName to send data as parameter *@
+                            <a asp-controller="Match" asp-action="Edit" asp-route-id="@obj.Id">Edit</a>
+                            <a asp-controller="Match" asp-action="Delete" asp-route-id="@obj.Id">Delete</a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
